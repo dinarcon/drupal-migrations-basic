@@ -1,0 +1,125 @@
+{
+  "course": {
+    "homepage": "https://understanddrupal.com/migrations",
+    "repository": "https://github.com/dinarcon/drupal_migrations_basic"
+  },
+  "author": {
+    "name": "Mauricio Dinarte",
+    "online_profiles": {
+      "drupal": "https://www.drupal.org/u/dinarcon",
+      "gitlab": "https://gitlab.com/dinarcon",
+      "github": "https://github.com/dinarcon",
+      "twitter": "https://twitter.com/dinarcon"
+    }
+  },
+  "data": {
+    "ud_staff": [
+      {
+        "staff_id": 1,
+        "first_name": "Michele",
+        "last_name": "Metts",
+        "department": "Biology",
+        "date": "July 3, 2001",
+        "address": {
+          "city": "Boston",
+          "state": "MA",
+          "zip": "02111",
+          "country_code": "US"
+        },
+        "photo_file": "P01",
+        "book_reference": "B10",
+        "biography": "As a public speaker Micky brings the <a href='https://agaric.coop/' title='Agaric Cooperative'>Agaric</a> message of cooperative development using free software to many networks and movements.",
+        "online_profiles": {
+          "drupal": "https://www.drupal.org/u/freescholar",
+          "gitlab": "https://gitlab.com/FreeScholar",
+          "twitter": "https://twitter.com/mickymetts"
+        }
+      },
+      {
+        "staff_id": 2,
+        "first_name": "Benjamin",
+        "last_name": "Melançon",
+        "department": "Anthropology",
+        "date": "March 8, 2007",
+        "address": {
+          "city": "San Juan del Sur",
+          "state": "Rivas",
+          "zip": "",
+          "country_code": "NI"
+        },
+        "photo_file": "P03",
+        "book_reference": "B20",
+        "biography": "Benjamin lives and works to <strong>connect people, ideas, and resources</strong> so more awesome things happen.",
+        "online_profiles": {
+          "drupal": "https://www.drupal.org/u/mlncn",
+          "gitlab": "https://gitlab.com/mlncn",
+          "twitter": "https://twitter.com/mlncn"
+        }
+      },
+      {
+        "staff_id": 3,
+        "first_name": "Stefan",
+        "last_name": "Freudenberg",
+        "department": "Physics",
+        "date": "October 17, 2010",
+        "address": {
+          "city": "Hamburg",
+          "state": "",
+          "zip": 21073,
+          "country_code": "DE"
+        },
+        "photo_file": "P04",
+        "book_reference": "B30",
+        "biography": "Part analyst, part troubleshooter, and part troublemaker, Stefan is well-versed in <em>multiple human and computer languages</em>.",
+        "online_profiles": {
+          "drupal": "https://www.drupal.org/u/stefan-freudenberg",
+          "gitlab": "https://gitlab.com/freudenberg",
+          "twitter": "https://twitter.com/stefansys"
+        }
+      }
+    ],
+    "ud_photos": [
+      {
+        "photo_id": "P01",
+        "photo_url": "https://udrupal.com/photos/freescholar.jpg",
+        "photo_dimensions": [240, 351]
+      },
+      {
+        "photo_id": "P02"
+      },
+      {
+        "photo_id": "P03",
+        "photo_url": "https://udrupal.com/photos/melançon.jpg",
+        "photo_dimensions": [240, 351]
+      },
+      {
+        "photo_id": "P04",
+        "photo_url": "https://udrupal.com/photos/sfreudenberg.jpg",
+        "photo_dimensions": [240, 351]
+      }
+    ],
+    "ud_book_paragraphs": [
+      {
+        "book_id": "B10",
+        "book_details": {
+          "title": "The Definitive Guide to Drupal 7",
+          "author": "Benjamin Melançon et al."
+        }
+      },
+      {
+        "book_id": "B20",
+        "book_details": {
+          "title": "Understand Drupal Views",
+          "author": "Carlos Dinarte"
+        }
+      },
+      {
+        "book_id": "B30",
+        "book_details": {
+          "title": "Understand Drupal Migrations",
+          "author": "Mauricio Dinarte"
+        }
+      }
+    ]
+  }
+}

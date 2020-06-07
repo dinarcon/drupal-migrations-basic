@@ -1,0 +1,140 @@
+uuid: 682a098e-5197-45c6-b0b7-9c42569160e6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.ud_staff.field_ud_biography
+    - field.field.node.ud_staff.field_ud_department
+    - field.field.node.ud_staff.field_ud_favorite_book
+    - field.field.node.ud_staff.field_ud_office_address
+    - field.field.node.ud_staff.field_ud_online_profiles
+    - field.field.node.ud_staff.field_ud_photo
+    - field.field.node.ud_staff.field_ud_start_date
+    - image.style.thumbnail
+    - node.type.ud_staff
+  module:
+    - address
+    - datetime
+    - image
+    - link
+    - paragraphs
+    - path
+    - text
+  enforced:
+    module:
+      - ud_staff_setup
+id: node.ud_staff.default
+targetEntityType: node
+bundle: ud_staff
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_ud_biography:
+    weight: 12
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_ud_department:
+    weight: 7
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_ud_favorite_book:
+    type: entity_reference_paragraphs
+    weight: 11
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+  field_ud_office_address:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    type: address_default
+    region: content
+  field_ud_online_profiles:
+    weight: 13
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_ud_photo:
+    weight: 9
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_ud_start_date:
+    weight: 8
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  path:
+    type: path
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 3
+    region: content
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 6
+    region: content
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 4
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 1
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    region: content
+    third_party_settings: {  }
+hidden: {  }

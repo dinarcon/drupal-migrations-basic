@@ -1,0 +1,22 @@
+uuid: 3a19d7b0-a68d-4278-bd48-c73f62de49f5
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+  enforced:
+    module:
+      - ud_staff_setup
+id: node.field_ud_biography
+field_name: field_ud_biography
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

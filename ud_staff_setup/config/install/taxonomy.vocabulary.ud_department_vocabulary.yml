@@ -1,0 +1,11 @@
+uuid: ebbdc0ab-2b12-4029-a2d0-ec2f9db9aa91
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - ud_staff_setup
+name: Department
+vid: ud_department_vocabulary
+description: 'Example vocabulary for the <a href="https://udrupal.com/migrations"><strong>Understand Drupal Migrations Course</strong></a>.'
+weight: 0

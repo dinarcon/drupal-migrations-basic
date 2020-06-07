@@ -1,0 +1,41 @@
+uuid: 3fdb7188-45c9-4251-b1fc-df452d630762
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ud_photo
+    - node.type.ud_staff
+  module:
+    - image
+  enforced:
+    module:
+      - ud_staff_setup
+id: node.ud_staff.field_ud_photo
+field_name: field_ud_photo
+entity_type: node
+bundle: ud_staff
+label: Photo
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: staff_photo
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

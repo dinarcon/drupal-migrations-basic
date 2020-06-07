@@ -1,0 +1,142 @@
+uuid: ce7058af-235f-443a-b191-4d9749d5084b
+id: ud_staff_json_node
+label: 'Import staff nodes from JSON'
+migration_group: ud_staff_json_examples
+
+# Migration configuration entities might inherit from the migration group.
+# Any configuration defined in the group can be overridden here by
+# re-declaring it and assigning a new value.
+# 'dependencies' are inherited from ud_staff_json_examples group.
+# 'migration_tags' are inherited from ud_staff_json_examples group.
+
+source:
+  constants:
+    TITLE_SUFFIX: '(from JSON)'
+    PHOTO_DESCRIPTION_PREFIX: 'Photo of '
+    DRUPAL_LINK_TITLE: 'Drupal.org profile'
+    GITLAB_LINK_TITLE: 'GitLab profile'
+    TWITTER_LINK_TITLE: 'Twitter profile'
+
+  # Nested configuration structures are kept when inherited.
+  # 'plugin' is inherited from ud_staff_json_examples group.
+  # 'data_fetcher_plugin' is inherited from ud_staff_json_examples group.
+  # 'data_parser_plugin' is inherited from ud_staff_json_examples group.
+  # 'urls' are inherited from ud_staff_json_examples group.
+
+  # XPath-like selector. The slash (/) at the beginning is optional.
+  item_selector: /data/ud_staff
+
+  fields:
+    - name: src_staff_id
+      label: 'Staff ID'
+      selector: staff_id
+    - name: 'First Name'
+      selector: first_name
+    - name: 'Last Name'
+      selector: last_name
+    - name: 'Department'
+      selector: department
+    - name: 'Date'
+      selector: date
+    - name: 'City'
+      selector: address/city
+    - name: 'State'
+      selector: address/state
+    - name: 'ZIP'
+      selector: address/zip
+    - name: 'Country Code'
+      selector: address/country_code
+    - name: 'Photo File'
+      selector: photo_file
+    - name: 'Book Reference'
+      selector: book_reference
+    - name: 'Biography'
+      selector: biography
+    - name: 'Drupal'
+      selector: online_profiles/drupal
+    - name: 'Gitlab'
+      selector: online_profiles/gitlab
+    - name: 'Twitter'
+      selector: online_profiles/twitter
+
+  ids:
+    src_staff_id:
+      type: integer
+
+process:
+  title:
+    plugin: concat
+    source:
+      - 'First Name'
+      - 'Last Name'
+      - constants/TITLE_SUFFIX
+    delimiter: ' '
+
+  field_ud_biography/value: Biography
+  field_ud_biography/format:
+    plugin: default_value
+    default_value: basic_html
+
+  field_ud_online_profiles/0/uri: Drupal
+  field_ud_online_profiles/0/title: constants/DRUPAL_LINK_TITLE
+  field_ud_online_profiles/1/uri: Gitlab
+  field_ud_online_profiles/1/title: constants/GITLAB_LINK_TITLE
+  field_ud_online_profiles/2/uri: Twitter
+  field_ud_online_profiles/2/title: constants/TWITTER_LINK_TITLE
+
+  field_ud_start_date:
+    plugin: format_date
+    source: Date
+    from_format: 'F j, Y'
+    to_format: Y-m-d
+
+  field_ud_office_address/address_line1:
+    plugin: default_value
+    default_value: 'It is a secret ;-)'
+  field_ud_office_address/locality: City
+  field_ud_office_address/administrative_area: State
+  field_ud_office_address/postal_code: ZIP
+  field_ud_office_address/country_code: 'Country Code'
+
+  field_ud_department:
+    plugin: entity_generate
+    source: Department
+    entity_type: taxonomy_term
+    bundle: ud_department_vocabulary
+    value_key: name
+    bundle_key: vid
+
+  field_ud_photo/target_id:
+    plugin: migration_lookup
+    migration: ud_staff_json_image
+    source: 'Photo File'
+    no_stub: true
+  field_ud_photo/alt:
+    plugin: concat
+    source:
+      - constants/PHOTO_DESCRIPTION_PREFIX
+      - '@title'
+
+  psf_book_paragraph:
+    plugin: migration_lookup
+    migration: ud_staff_json_paragraph
+    source: 'Book Reference'
+    no_stub: true
+  field_ud_favorite_book/target_id:
+    plugin: extract
+    source: '@psf_book_paragraph'
+    index: [0]
+  field_ud_favorite_book/target_revision_id:
+    plugin: extract
+    source: '@psf_book_paragraph'
+    index: [1]
+
+destination:
+  plugin: 'entity:node'
+  default_bundle: ud_staff
+
+migration_dependencies:
+  required:
+    - ud_staff_json_image
+    - ud_staff_json_paragraph
+  optional: []

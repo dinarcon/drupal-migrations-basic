@@ -1,0 +1,13 @@
+uuid: 6bcfc4d8-de08-47bf-abb1-06e7f06830ce
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - ud_staff_setup
+id: ud_book_paragraph
+label: Book
+icon_uuid: null
+icon_default: null
+description: 'Example paragraph type for the <strong>Understand Drupal Migrations Course</strong>. <a href="https://understanddrupal.com/migrations" title="Understand Drupal Migrations Course">https://understanddrupal.com/migrations</a>'
+behavior_plugins: {  }

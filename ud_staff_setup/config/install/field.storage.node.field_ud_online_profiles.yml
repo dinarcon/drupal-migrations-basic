@@ -1,0 +1,22 @@
+uuid: 07ec2875-6f3f-4795-b575-d8e44ca74be9
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - node
+  enforced:
+    module:
+      - ud_staff_setup
+id: node.field_ud_online_profiles
+field_name: field_ud_online_profiles
+entity_type: node
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

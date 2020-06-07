@@ -1,0 +1,43 @@
+uuid: cd958fd2-14ed-49e0-b5c4-d7d8f1acae90
+id: ud_staff_json_paragraph
+label: 'Import book paragraphs from JSON'
+migration_group: ud_staff_json_examples
+
+# Migration configuration entities might inherit from the migration group.
+# Any configuration defined in the group can be overridden here by
+# re-declaring it and assigning a new value.
+# 'dependencies' are inherited from ud_staff_json_examples group.
+# 'migration_tags' are inherited from ud_staff_json_examples group.
+
+source:
+  # Nested configuration structures are kept when inherited.
+  # 'plugin' is inherited from ud_staff_json_examples group.
+  # 'data_fetcher_plugin' is inherited from ud_staff_json_examples group.
+  # 'data_parser_plugin' is inherited from ud_staff_json_examples group.
+  # 'urls' are inherited from ud_staff_json_examples group.
+
+  # XPath-like selector. The slash (/) at the beginning is optional.
+  item_selector: /data/ud_book_paragraphs
+
+  fields:
+    - name: src_book_id
+      label: 'Book ID'
+      selector: book_id
+    - name: 'Title'
+      selector: book_details/title
+    - name: 'Author'
+      selector: book_details/author
+
+  ids:
+    src_book_id:
+      type: string
+
+process:
+  field_ud_book_title: Title
+  field_ud_book_author: Author
+
+destination:
+  plugin: 'entity_reference_revisions:paragraph'
+  default_bundle: ud_book_paragraph
+
+migration_dependencies: null

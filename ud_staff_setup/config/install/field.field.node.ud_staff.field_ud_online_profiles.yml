@@ -1,0 +1,26 @@
+uuid: 3f7c9f0c-70f8-4ef2-bfb4-fc48343ffdf7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ud_online_profiles
+    - node.type.ud_staff
+  module:
+    - link
+  enforced:
+    module:
+      - ud_staff_setup
+id: node.ud_staff.field_ud_online_profiles
+field_name: field_ud_online_profiles
+entity_type: node
+bundle: ud_staff
+label: 'Online profiles'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 1
+field_type: link

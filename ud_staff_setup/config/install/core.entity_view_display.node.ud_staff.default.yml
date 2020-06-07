@@ -1,0 +1,97 @@
+uuid: 102d360c-9db2-480a-9496-6f1985711570
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.ud_staff.field_ud_biography
+    - field.field.node.ud_staff.field_ud_department
+    - field.field.node.ud_staff.field_ud_favorite_book
+    - field.field.node.ud_staff.field_ud_office_address
+    - field.field.node.ud_staff.field_ud_online_profiles
+    - field.field.node.ud_staff.field_ud_photo
+    - field.field.node.ud_staff.field_ud_start_date
+    - image.style.large
+    - node.type.ud_staff
+  module:
+    - address
+    - datetime
+    - entity_reference_revisions
+    - image
+    - link
+    - text
+    - user
+  enforced:
+    module:
+      - ud_staff_setup
+id: node.ud_staff.default
+targetEntityType: node
+bundle: ud_staff
+mode: default
+content:
+  field_ud_biography:
+    weight: 1
+    label: visually_hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_ud_department:
+    weight: 2
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_ud_favorite_book:
+    type: entity_reference_revisions_entity_view
+    weight: 6
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_ud_office_address:
+    weight: 4
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: address_default
+    region: content
+  field_ud_online_profiles:
+    weight: 5
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_ud_photo:
+    weight: 0
+    label: visually_hidden
+    settings:
+      image_style: large
+      image_link: file
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_ud_start_date:
+    weight: 3
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: html_date
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  links:
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

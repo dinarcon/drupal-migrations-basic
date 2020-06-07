@@ -1,0 +1,95 @@
+id: ud_staff_csv_node
+label: 'Import staff nodes from CSV'
+migration_tags:
+  - UD CSV Source
+  - UD Migrations Basic Example
+
+source:
+  constants:
+    TITLE_SUFFIX: '(from CSV)'
+    PHOTO_DESCRIPTION_PREFIX: 'Photo of '
+    DRUPAL_LINK_TITLE: 'Drupal.org profile'
+    GITLAB_LINK_TITLE: 'GitLab profile'
+    TWITTER_LINK_TITLE: 'Twitter profile'
+
+  plugin: csv
+  path: modules/custom/ud_staff/sources/ud_staff.csv
+  ids: ['Staff ID']
+
+process:
+  title:
+    plugin: concat
+    source:
+      - 'First Name'
+      - 'Last Name'
+      - constants/TITLE_SUFFIX
+    delimiter: ' '
+
+  field_ud_biography/value: Biography
+  field_ud_biography/format:
+    plugin: default_value
+    default_value: basic_html
+
+  field_ud_online_profiles/0/uri: Drupal
+  field_ud_online_profiles/0/title: constants/DRUPAL_LINK_TITLE
+  field_ud_online_profiles/1/uri: Gitlab
+  field_ud_online_profiles/1/title: constants/GITLAB_LINK_TITLE
+  field_ud_online_profiles/2/uri: Twitter
+  field_ud_online_profiles/2/title: constants/TWITTER_LINK_TITLE
+
+  field_ud_start_date:
+    plugin: format_date
+    source: Date
+    from_format: 'F j, Y'
+    to_format: Y-m-d
+
+  field_ud_office_address/address_line1:
+    plugin: default_value
+    default_value: 'It is a secret ;-)'
+  field_ud_office_address/locality: City
+  field_ud_office_address/administrative_area: State
+  field_ud_office_address/postal_code: ZIP
+  field_ud_office_address/country_code: 'Country Code'
+
+  field_ud_department:
+    plugin: entity_generate
+    source: Department
+    entity_type: taxonomy_term
+    bundle: ud_department_vocabulary
+    value_key: name
+    bundle_key: vid
+
+  field_ud_photo/target_id:
+    plugin: migration_lookup
+    migration: ud_staff_csv_image
+    source: 'Photo File'
+    no_stub: true
+  field_ud_photo/alt:
+    plugin: concat
+    source:
+      - constants/PHOTO_DESCRIPTION_PREFIX
+      - '@title'
+
+  psf_book_paragraph:
+    plugin: migration_lookup
+    migration: ud_staff_csv_paragraph
+    source: 'Book Reference'
+    no_stub: true
+  field_ud_favorite_book/target_id:
+    plugin: extract
+    source: '@psf_book_paragraph'
+    index: [0]
+  field_ud_favorite_book/target_revision_id:
+    plugin: extract
+    source: '@psf_book_paragraph'
+    index: [1]
+
+destination:
+  plugin: 'entity:node'
+  default_bundle: ud_staff
+
+migration_dependencies:
+  required:
+    - ud_staff_csv_image
+    - ud_staff_csv_paragraph
+  optional: []

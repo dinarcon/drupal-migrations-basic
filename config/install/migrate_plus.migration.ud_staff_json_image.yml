@@ -1,0 +1,62 @@
+uuid: 80c8d485-ac9c-44dd-b858-47e1c2997779
+id: ud_staff_json_image
+label: 'Import staff photos from JSON'
+migration_group: ud_staff_json_examples
+
+# Migration configuration entities might inherit from the migration group.
+# Any configuration defined in the group can be overridden here by
+# re-declaring it and assigning a new value.
+# 'dependencies' are inherited from ud_staff_json_examples group.
+# 'migration_tags' are inherited from ud_staff_json_examples group.
+
+source:
+  constants:
+    DRUPAL_STAFF_PHOTO_DIRECTORY: 'public://staff_photo'
+
+  # Nested configuration structures are kept when inherited.
+  # 'plugin' is inherited from ud_staff_json_examples group.
+  # 'data_fetcher_plugin' is inherited from ud_staff_json_examples group.
+  # 'data_parser_plugin' is inherited from ud_staff_json_examples group.
+  # 'urls' are inherited from ud_staff_json_examples group.
+
+  # XPath-like selector. The slash (/) at the beginning is optional.
+  item_selector: /data/ud_photos
+
+  fields:
+    - name: src_photo_id
+      label: 'Photo ID'
+      selector: photo_id
+    - name: 'Photo URL'
+      selector: photo_url
+
+  ids:
+    src_photo_id:
+      type: string
+
+process:
+  psf_destination_filename:
+    - plugin: callback
+      source: 'Photo URL'
+      callable: basename
+    - plugin: transliteration
+    - plugin: skip_on_empty
+      method: row
+      message: 'Cannot import missing Photo URL.'
+  psf_destination_full_path:
+    plugin: concat
+    source:
+      - constants/DRUPAL_STAFF_PHOTO_DIRECTORY
+      - '@psf_destination_filename'
+    delimiter: /
+
+  uri:
+    plugin: download
+    source:
+      - 'Photo URL'
+      - '@psf_destination_full_path'
+    file_exists: 'rename'
+
+destination:
+  plugin: 'entity:file'
+
+migration_dependencies: null

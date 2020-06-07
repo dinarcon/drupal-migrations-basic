@@ -1,0 +1,33 @@
+uuid: e2ae4da9-8db3-4781-bcb4-fb83744bcac5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.ud_book_paragraph.field_ud_book_author
+    - field.field.paragraph.ud_book_paragraph.field_ud_book_title
+    - paragraphs.paragraphs_type.ud_book_paragraph
+  enforced:
+    module:
+      - ud_staff_setup
+id: paragraph.ud_book_paragraph.default
+targetEntityType: paragraph
+bundle: ud_book_paragraph
+mode: default
+content:
+  field_ud_book_author:
+    weight: 1
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_ud_book_title:
+    weight: 0
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

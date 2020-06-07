@@ -1,0 +1,45 @@
+uuid: 6c02ceb9-cfcc-4e63-939b-893563729b0a
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.ud_staff.field_ud_biography
+    - field.field.node.ud_staff.field_ud_department
+    - field.field.node.ud_staff.field_ud_favorite_book
+    - field.field.node.ud_staff.field_ud_office_address
+    - field.field.node.ud_staff.field_ud_online_profiles
+    - field.field.node.ud_staff.field_ud_photo
+    - field.field.node.ud_staff.field_ud_start_date
+    - node.type.ud_staff
+  module:
+    - text
+    - user
+  enforced:
+    module:
+      - ud_staff_setup
+id: node.ud_staff.teaser
+targetEntityType: node
+bundle: ud_staff
+mode: teaser
+content:
+  field_ud_biography:
+    type: text_trimmed
+    weight: 0
+    region: content
+    label: visually_hidden
+    settings:
+      trim_length: 700
+    third_party_settings: {  }
+  links:
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_ud_department: true
+  field_ud_favorite_book: true
+  field_ud_office_address: true
+  field_ud_online_profiles: true
+  field_ud_photo: true
+  field_ud_start_date: true

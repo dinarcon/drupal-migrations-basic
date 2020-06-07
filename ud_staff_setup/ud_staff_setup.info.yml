@@ -1,0 +1,22 @@
+name: UD Staff Example Migration Setup
+type: module
+description: Example configuration for the Understand Drupal Migrations Course. https://understanddrupal.com/migrations
+package: UnderstandDrupal.com
+core: 8.x
+core_version_requirement: ^8 || ^9
+hidden: 1
+dependencies:
+  - address:address
+  - drupal:datetime
+  - drupal:image
+  - drupal:link
+  - drupal:migrate
+  - drupal:options
+  - drupal:taxonomy
+  - drupal:text
+  - drupal:views
+  - entity_reference_revisions:entity_reference_revisions
+  - migrate_plus:migrate_plus
+  - migrate_source_csv:migrate_source_csv
+  - migrate_tools:migrate_tools
+  - paragraphs:paragraphs

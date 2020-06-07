@@ -1,0 +1,15 @@
+name: UD Staff Example Migration
+type: module
+description: Example for the Understand Drupal Migrations Course. https://understanddrupal.com/migrations
+package: UnderstandDrupal.com
+core: 8.x
+core_version_requirement: ^8 || ^9
+dependencies:
+  - address:address
+  - drupal:migrate
+  - entity_reference_revisions:entity_reference_revisions
+  - ud_staff:ud_staff_setup
+  - migrate_plus:migrate_plus
+  - migrate_source_csv:migrate_source_csv
+  - migrate_tools:migrate_tools
+  - paragraphs:paragraphs

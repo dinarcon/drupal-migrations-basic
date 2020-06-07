@@ -1,0 +1,23 @@
+uuid: 670d8e15-e4d2-4ce2-b72b-99d1ca7ae003
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+  enforced:
+    module:
+      - ud_staff_setup
+id: node.field_ud_department
+field_name: field_ud_department
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

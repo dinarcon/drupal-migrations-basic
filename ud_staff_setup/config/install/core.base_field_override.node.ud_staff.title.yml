@@ -1,0 +1,21 @@
+uuid: 408e46f0-d3e7-48bb-88bc-53ee460e3bc6
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.ud_staff
+  enforced:
+    module:
+      - ud_staff_setup
+id: node.ud_staff.title
+field_name: title
+entity_type: node
+bundle: ud_staff
+label: Name
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

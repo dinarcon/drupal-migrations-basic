@@ -1,0 +1,41 @@
+uuid: f82ef1c3-7807-407e-90ba-20a27e7e2d5d
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - ud_staff
+
+id: ud_staff_json_examples
+label: 'UD Staff JSON Examples'
+description: 'Example JSON migration group for the Understand Drupal Migrations Course. https://understanddrupal.com/migrations'
+source_type: 'JSON'
+
+shared_configuration:
+  dependencies:
+    enforced:
+      module:
+        - ud_staff
+
+  migration_tags:
+    - UD JSON Source
+    - UD Migrations Basic Example
+
+  # If the remote JSON file is not available, you will have to modify this file
+  # and import the configuration afterwards. You can do it this Drush command:
+  # ./vendor/bin/drush --yes config-import --partial --source=modules/custom/ud_staff/config/install
+  # Alternatively, you can use the configuration development module:
+  # https://www.drupal.org/project/config_devel
+  # Any other approach for managing your site's configuration should also work.
+  # Although not recommended, you can use the single item configuration import
+  # interface available at /admin/config/development/configuration/single/import
+  source:
+    plugin: url
+    # Change the data fetcher to 'file' if the remote JSON file is unavailable.
+    data_fetcher_plugin: http
+    data_parser_plugin: json
+    # Change URL to use a local copy if the remote JSON file is unavailable.
+    # modules/custom/ud_staff/sources/ud_migrations_basic_data.json
+    urls:
+      - https://udrupal.com/files/ud_migrations_basic_data.json
+

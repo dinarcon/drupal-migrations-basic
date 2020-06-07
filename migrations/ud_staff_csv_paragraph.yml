@@ -1,0 +1,20 @@
+id: ud_staff_csv_paragraph
+label: 'Import book paragraphs from CSV'
+migration_tags:
+  - UD CSV Source
+  - UD Migrations Basic Example
+
+source:
+  plugin: csv
+  path: modules/custom/ud_staff/sources/ud_book_paragraphs.csv
+  ids: ['Book ID']
+
+process:
+  field_ud_book_title: Title
+  field_ud_book_author: Author
+
+destination:
+  plugin: 'entity_reference_revisions:paragraph'
+  default_bundle: ud_book_paragraph
+
+migration_dependencies: null

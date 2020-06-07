@@ -1,0 +1,31 @@
+{
+  "name": "drupal/ud_staff",
+  "description": "Example for the Understand Drupal Migrations Course.",
+  "type": "drupal-module",
+  "license": "GPL-2.0-or-later",
+  "homepage": "https://understanddrupal.com/migrations",
+  "authors": [
+    {
+        "name": "Mauricio Dinarte",
+        "homepage":"https://www.drupal.org/u/dinarcon",
+        "role": "Maintainer"
+    }
+  ],
+  "support": {
+    "source": "https://github.com/dinarcon/drupal_migrations_basic",
+    "issues": "https://github.com/dinarcon/drupal_migrations_basic/issues"
+  },
+  "require": {
+    "drupal/core": "^8 | ^9",
+    "drupal/address": "^1.8",
+    "drupal/entity_reference_revisions": "^1.8",
+    "drupal/migrate_plus": "^5.1",
+    "drupal/migrate_source_csv": "^3.4",
+    "drupal/migrate_tools": "^5.0",
+    "drupal/paragraphs": "^1.12"
+  },
+  "suggest": {
+    "drush/drush": "^10"
+  },
+  "minimum-stability": "dev"
+}

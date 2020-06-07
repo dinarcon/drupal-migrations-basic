@@ -1,0 +1,22 @@
+uuid: bd81d804-1267-412b-9468-3ace6a1fcf6b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ud_book_title
+    - paragraphs.paragraphs_type.ud_book_paragraph
+  enforced:
+    module:
+      - ud_staff_setup
+id: paragraph.ud_book_paragraph.field_ud_book_title
+field_name: field_ud_book_title
+entity_type: paragraph
+bundle: ud_book_paragraph
+label: Title
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
