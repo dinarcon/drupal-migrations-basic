@@ -1,7 +1,7 @@
 {
   "course": {
     "homepage": "https://understanddrupal.com/migrations",
-    "repository": "https://github.com/dinarcon/drupal_migrations_basic"
+    "repository": "https://github.com/dinarcon/drupal-migrations-basic"
   },
   "author": {
     "name": "Mauricio Dinarte",
@@ -32,7 +32,7 @@
         "online_profiles": {
           "drupal": "https://www.drupal.org/u/freescholar",
           "gitlab": "https://gitlab.com/FreeScholar",
-          "twitter": "https://twitter.com/mickymetts"
+          "twitter": "https://twitter.com/Free_Scholar"
         }
       },
       {

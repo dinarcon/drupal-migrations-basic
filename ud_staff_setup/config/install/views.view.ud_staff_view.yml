@@ -677,7 +677,7 @@ display:
           empty: true
           tokenize: false
           content:
-            value: "<p>The example module has been installed correctly, but the migrations have not been executed. Run any of the following Drush commands to get the content imported:</p>\r\n\r\n<ul>\r\n  <li>To migrate only from CSV files execute:<br /><code>./vendor/bin/drush migrate:import --tag='UD CSV Source'</code></li>\r\n  <li>To migrate only from JSON files execute:<br /><code>./vendor/bin/drush migrate:import --group='ud_staff_json_examples'</code></li>\r\n  <li>To migrate from both CSV and JSON files execute:<br /><code>./vendor/bin/drush migrate:import --tag='UD Migrations Basic Example'</code></li>\r\n</ul>\r\n\r\n<p>Alternatively, JSON migrations can also be executed from the <a href='/admin/structure/migrate/manage/ud_staff_json_examples/migrations' title='UD Staff JSON Examples migration group administration interface'>administration interface for the UD Staff JSON Examples migration group</a>.</p>\r\n\r\n<p>If the import operation fails, make sure that path to the CSV and JSON files are properly configured. Refer to the <a href='https://github.com/dinarcon/drupal_migrations_basic/blob/master/TROUBLESHOOTING.md' title='Troubleshooting file'>TROUBLESHOOTING.md file</a> for details.</p>"
+            value: "<p>The example module has been installed correctly, but the migrations have not been executed. Run any of the following Drush commands to get the content imported:</p>\r\n\r\n<ul>\r\n  <li>To migrate only from CSV files execute:<br /><code>./vendor/bin/drush migrate:import --tag='UD CSV Source'</code></li>\r\n  <li>To migrate only from JSON files execute:<br /><code>./vendor/bin/drush migrate:import --group='ud_staff_json_examples'</code></li>\r\n  <li>To migrate from both CSV and JSON files execute:<br /><code>./vendor/bin/drush migrate:import --tag='UD Migrations Basic Example'</code></li>\r\n</ul>\r\n\r\n<p>Alternatively, JSON migrations can also be executed from the <a href='/admin/structure/migrate/manage/ud_staff_json_examples/migrations' title='UD Staff JSON Examples migration group administration interface'>administration interface for the UD Staff JSON Examples migration group</a>.</p>\r\n\r\n<p>If the import operation fails, make sure that path to the CSV and JSON files are properly configured. Refer to the <a href='https://github.com/dinarcon/drupal-migrations-basic/blob/main/TROUBLESHOOTING.md' title='Troubleshooting file'>TROUBLESHOOTING.md file</a> for details.</p>"
             format: basic_html
           plugin_id: text
       relationships: {  }
@@ -706,7 +706,7 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: staff
+      path: ud-staff
       menu:
         type: normal
         title: Staff

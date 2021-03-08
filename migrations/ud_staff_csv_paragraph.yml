@@ -17,4 +17,6 @@ destination:
   plugin: 'entity_reference_revisions:paragraph'
   default_bundle: ud_book_paragraph
 
-migration_dependencies: null
+migration_dependencies:
+  required: { }
+  optional: { }

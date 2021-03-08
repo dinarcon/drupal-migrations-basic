@@ -14,7 +14,7 @@ third_party_settings:
 name: Staff
 type: ud_staff
 description: 'Example content type for the <strong>Understand Drupal Migrations Course</strong>. <a href="https://understanddrupal.com/migrations" title="Understand Drupal Migrations Course">https://understanddrupal.com/migrations</a>'
-help: 'Nodes of this type will appear on the <a href=''/staff'' title=''Staff page''>Staff page</a> as part of the example for the <strong>Understand Drupal Migrations Course</strong>. <a href="https://understanddrupal.com/migrations" title="Understand Drupal Migrations Course">https://understanddrupal.com/migrations</a>'
+help: 'Nodes of this type will appear on the <a href=''/ud-staff'' title=''Staff page''>Staff page</a> as part of the example for the <strong>Understand Drupal Migrations Course</strong>. <a href="https://understanddrupal.com/migrations" title="Understand Drupal Migrations Course">https://understanddrupal.com/migrations</a>'
 new_revision: true
 preview_mode: 1
 display_submitted: false

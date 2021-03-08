@@ -12,20 +12,19 @@
     }
   ],
   "support": {
-    "source": "https://github.com/dinarcon/drupal_migrations_basic",
-    "issues": "https://github.com/dinarcon/drupal_migrations_basic/issues"
+    "source": "https://github.com/dinarcon/drupal-migrations-basic",
+    "issues": "https://github.com/dinarcon/drupal-migrations-basic/issues"
   },
   "require": {
     "drupal/core": "^8 | ^9",
-    "drupal/address": "^1.8",
-    "drupal/entity_reference_revisions": "^1.8",
+    "drupal/address": "^1.9",
     "drupal/migrate_plus": "^5.1",
     "drupal/migrate_source_csv": "^3.4",
     "drupal/migrate_tools": "^5.0",
     "drupal/paragraphs": "^1.12"
   },
   "suggest": {
-    "drush/drush": "^10"
+    "drush/drush": "Drush 10.3.x required. Execute commands provided by migrate_tools <=5."
   },
   "minimum-stability": "dev"
 }

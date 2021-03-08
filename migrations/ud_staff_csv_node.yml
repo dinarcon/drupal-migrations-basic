@@ -70,18 +70,18 @@ process:
       - constants/PHOTO_DESCRIPTION_PREFIX
       - '@title'
 
-  psf_book_paragraph:
+  pseudo_book_paragraph:
     plugin: migration_lookup
     migration: ud_staff_csv_paragraph
     source: 'Book Reference'
     no_stub: true
   field_ud_favorite_book/target_id:
     plugin: extract
-    source: '@psf_book_paragraph'
+    source: '@pseudo_book_paragraph'
     index: [0]
   field_ud_favorite_book/target_revision_id:
     plugin: extract
-    source: '@psf_book_paragraph'
+    source: '@pseudo_book_paragraph'
     index: [1]
 
 destination:
@@ -92,4 +92,4 @@ migration_dependencies:
   required:
     - ud_staff_csv_image
     - ud_staff_csv_paragraph
-  optional: []
+  optional: { }

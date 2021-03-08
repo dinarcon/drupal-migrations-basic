@@ -21,7 +21,7 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  file_directory: staff_photo
+  file_directory: ud-migrations/basic
   file_extensions: 'png gif jpg jpeg'
   max_filesize: ''
   max_resolution: ''

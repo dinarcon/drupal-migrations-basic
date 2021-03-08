@@ -3,14 +3,31 @@
 This is a list of some commands use throughout the course.
 
 ```
-# Create modules/custom folder.
+COMPOSER_MEMORY_LIMIT=-1 composer create-project drupal/recommended-project:^9.1 migrations-basic
+
+cd migrations-basic
+
+COMPOSER_MEMORY_LIMIT=-1 composer require 'drush/drush:^10.3.0' 'drupal/migrate_plus:^5.1' 'drupal/migrate_tools:^5.0' 'drupal/migrate_source_csv:^3.4' 'drupal/entity_reference_revisions:^1.9' 'drupal/paragraphs:^1.12' 'drupal/address:^1.9' 'cweagans/composer-patches:^1.7'
+
+vim composer.json
+
+composer validate
+
+composer install
+
+composer remove drupal/core-project-message
+
 mkdir -p web/modules/custom
 
-# Get example module source code.
-cd web/modules/custom && git clone git@github.com:dinarcon/drupal_migrations_basic.git && mv drupal_migrations_basic ud_staff && rm -rf ud_staff/.git && cd ../../..
+cd web/modules/custom && git clone https://github.com/dinarcon/drupal-migrations-basic.git && mv drupal-migrations-basic ud_course && rm -rf ud_course/.git && cd ../../..
 
-# Enable example.
-./vendor/bin/drush pm-enable -y ud_staff
+php web/core/scripts/drupal quick-start standard --site-name "UnderstandDrupal.com/migrations" --suppress-login
+
+./vendor/bin/drush theme:enable claro && ./vendor/bin/drush --yes config:set system.theme admin claro
+
+./vendor/bin/drush theme:enable olivero && ./vendor/bin/drush --yes config:set system.theme default olivero
+
+./vendor/bin/drush pm:enable --yes ud_staff
 
 # Import all migrations.
 ./vendor/bin/drush migrate:import --tag='UD Migrations Basic Example'
@@ -19,7 +36,7 @@ cd web/modules/custom && git clone git@github.com:dinarcon/drupal_migrations_bas
 ./vendor/bin/drush migrate:rollback --tag='UD Migrations Basic Example'
 
 # Uninstall example module. This removes the included configuration: content type, fields, paragraph type, etc.
-./vendor/bin/drush pm:uninstall -y ud_staff ud_staff_setup
+./vendor/bin/drush pm:uninstall --yes ud_staff ud_staff_setup
 ```
 
 ```
@@ -80,7 +97,7 @@ select bundle, entity_id, revision_id, delta, field_ud_book_author_value from pa
 
 ```
 # Apply the configuration changes to the migrations configuration entities under config/install.
-./vendor/bin/drush --yes config-import --partial --source=modules/custom/ud_staff/config/install
+./vendor/bin/drush --yes config:import --partial --source=modules/custom/ud_staff/config/install
 
 # Generate a UUID.
 ./vendor/bin/drush php:eval "echo \Drupal::service('uuid')->generate(). PHP_EOL;"

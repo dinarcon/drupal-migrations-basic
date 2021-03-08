@@ -1,5 +1,13 @@
 # Troubleshooting
 
+## Drush command not defined or inability to install migrate_tools
+
+This module works with Drupal 8 and 9. All the examples in this demo module assume Drush **10.3.x** is used. If you are using another version, the commands and their aliases might be different. Execute `./vendor/bin/drush list --filter=migrate` to verify the available commands for your version of Drush.
+
+**Important:** Drush 10.4+ is not compatible with `migrate_tools` <= 5. Until a 6.x branch is release for `migrate_plus`, Drush needs to be pinned to `^10.3.0` via Composer.
+
+If you are using Drush 10, make sure the [Migrate tools](https://www.drupal.org/project/migrate_tools) is **enabled** on the site. This module provides the commands for executing migrations from the command line.
+
 ## CSV files location
 
 The `path` configuration for the CSV source plugin accepts either an absolute path or relative path from the Drupal's root folder. The examples use a relative path and that:
@@ -69,7 +77,7 @@ Paragraphs migrations are affected by a particular behavior of revisioned entiti
 # Import the CSV node migration again.
 ./vendor/bin/drush migrate:import ud_staff_csv_node
 
-# Visit the /staff page and notice that the nodes were imported, but the book paragraphs are missing.
+# Visit the /ud-staff page and notice that the nodes were imported, but the book paragraphs are missing.
 ```
 
 The purge of orphaned paragraphs is implemented at a [field](https://git.drupalcode.org/project/entity_reference_revisions/-/blob/8.x-1.8/src/Plugin/Field/FieldType/EntityReferenceRevisionsItem.php#L407) and [entity level](https://git.drupalcode.org/project/entity_reference_revisions/-/blob/8.x-1.8/entity_reference_revisions.module#L310) via a [queue worker](https://git.drupalcode.org/project/entity_reference_revisions/-/blob/8.x-1.8/src/Plugin/QueueWorker/OrphanPurger.php). In the past, the deletion was instantaneous. Today, the deletion is deferred to a later moment making this less likely to be noticed. Thanks to Damien McKenna for helping me understand this behavior.
@@ -87,7 +95,3 @@ In any migration project, it is common that you do roll back operations to test 
 ./vendor/bin/drush migrate:import ud_staff_csv_paragraph
 ./vendor/bin/drush migrate:import ud_staff_csv_node
 ```
-
-## Drush command not defined
-
-This module works with Drupal 8 and 9. Different versions of Drush are used for these major versions of Drupal. All the examples in this demo module assume Drush 10 is used. If you are using Drush 8 the command names and aliases might be different. Execute `./vendor/bin/drush list --filter=migrate` to verify the proper commands for your version of Drush.

@@ -22,8 +22,9 @@ shared_configuration:
     - UD Migrations Basic Example
 
   # If the remote JSON file is not available, you will have to modify this file
-  # and import the configuration afterwards. You can do it this Drush command:
-  # ./vendor/bin/drush --yes config-import --partial --source=modules/custom/ud_staff/config/install
+  # and re-import the configuration afterwards. You can do it using this Drush
+  # command:
+  # ./vendor/bin/drush --yes config:import --partial --source=modules/custom/ud_staff/config/install
   # Alternatively, you can use the configuration development module:
   # https://www.drupal.org/project/config_devel
   # Any other approach for managing your site's configuration should also work.
