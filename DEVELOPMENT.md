@@ -52,7 +52,7 @@ composer install
 mkdir -p web/modules/custom
 
 # Get demo module with GIT over HTTPS.
-cd web/modules/custom && git clone https://github.com/dinarcon/drupal-migrations-basic.git && mv drupal-migrations-basic ud_course && rm -rf ud_course/.git && cd ../../..
+cd web/modules/custom && git clone https://github.com/dinarcon/drupal-migrations-basic.git && mv drupal-migrations-basic ud_staff && rm -rf ud_staff/.git && cd ../../..
 
 # Get demo module with GIT over SSH.
 cd web/modules/custom && git clone git@github.com:dinarcon/drupal-migrations-basic.git && mv drupal-migrations-basic ud_staff && rm -rf ud_staff/.git && cd ../../..
