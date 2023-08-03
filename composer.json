@@ -16,15 +16,15 @@
     "issues": "https://github.com/dinarcon/drupal-migrations-basic/issues"
   },
   "require": {
-    "drupal/core": "^8 | ^9",
-    "drupal/address": "^1.9",
-    "drupal/migrate_plus": "^5.1",
-    "drupal/migrate_source_csv": "^3.4",
-    "drupal/migrate_tools": "^5.0",
-    "drupal/paragraphs": "^1.12"
+    "drupal/core": "^9 | ^10",
+    "drupal/address": "^1.12",
+    "drupal/migrate_plus": "^6.0",
+    "drupal/migrate_source_csv": "^3.5",
+    "drupal/migrate_tools": "^6.0",
+    "drupal/paragraphs": "^1.15"
   },
   "suggest": {
-    "drush/drush": "Drush 10.3.x required. Execute commands provided by migrate_tools <=5."
+    "drush/drush": "Drush 11 or higher."
   },
   "minimum-stability": "dev"
 }

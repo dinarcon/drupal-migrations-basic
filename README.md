@@ -8,18 +8,14 @@ This module is part of the [Understand Drupal Migrations Course](https://underst
 
 The following projects are required to run this demo. The numbers indicate which version of the project was last used for testing.
 
-* [Drupal](https://www.drupal.org/project/drupal) 9.1.5
-* [Address](https://www.drupal.org/project/address) 8.x-1.9
-* [Entity reference revisions](https://www.drupal.org/project/entity_reference_revisions) 8.x-1.9
-* [Migrate plus](https://www.drupal.org/project/migrate_plus) 8.x-5.1
+* [Drupal](https://www.drupal.org/project/drupal) 9 or 10
+* [Address](https://www.drupal.org/project/address) 8.x-1.12
+* [Entity reference revisions](https://www.drupal.org/project/entity_reference_revisions) 8.x-1.10
+* [Migrate plus](https://www.drupal.org/project/migrate_plus) 6.0.1
 * [Migrate source csv](https://www.drupal.org/project/migrate_source_csv) 8.x-3.4
-* [Migrate tools](https://www.drupal.org/project/migrate_tools) 8.x-5.0
-* [Paragraphs](https://www.drupal.org/project/paragraphs) 8.x-1.12
-* [Drush](https://github.com/drush-ops/drush) 10.3.6
-
-### Specific Drush version required
-
-Drush `10.4` and later is not compatible with `migrate_tools <= 5`. Until a `6.x` branch is released for `migrate_tools`, Drush needs to be pinned to `^10.3.0` via Composer.
+* [Migrate tools](https://www.drupal.org/project/migrate_tools) 6.0.2
+* [Paragraphs](https://www.drupal.org/project/paragraphs) 8.x-1.15
+* [Drush](https://github.com/drush-ops/drush) 11.6.0
 
 ## Examples
 
@@ -33,8 +29,8 @@ This demo includes six migrations. Three of them import content from CSV files a
 
 ## Instructions
 
-* Install module dependencies via Composer: `composer require 'drupal/migrate_plus:^5.1' 'drupal/migrate_tools:^5.0' 'drupal/migrate_source_csv:^3.4' 'drupal/entity_reference_revisions:^1.9' 'drupal/paragraphs:^1.12' 'drupal/address:^1.9'`
-* Install the **Drush 10.3.x** via Composer: `composer require 'drush/drush:^10.3.0'`. After this step, you may call it via `./vendor/bin/drush`.
+* Install module dependencies via Composer: `composer require 'drupal/migrate_plus:^6.0' 'drupal/migrate_tools:^6.0' 'drupal/migrate_source_csv:^3.5' 'drupal/entity_reference_revisions:^1.10' 'drupal/paragraphs:^1.15' 'drupal/address:^1.12'`
+* Install the Drush 11 or later via Composer: `composer require 'drush/drush:^11.0'`. After this step, you may call it via `./vendor/bin/drush`.
 * Make sure that your Drupal installation has a `/modules/custom` folder. The `modules` folder should exist, but the `custom` sub-folder might not. Create it if needed.
 * Download the demo module contained in this repository into the `/modules/custom` folder. You can do this by cloning this repository or [downloading a ZIP file](https://github.com/dinarcon/drupal-migrations-basic/archive/main.zip). **Important:** In either case, you need to rename the folder to `ud_staff`. Otherwise, the CSV migrations might not work.
 * Verify that the CSV files are in the proper location. See TROUBLESHOOTING.md file for details.

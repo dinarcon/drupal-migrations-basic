@@ -2,6 +2,8 @@
 
 ## Drush command not defined or inability to install migrate_tools
 
+Note: this is no longer applies. Left here for reference.
+
 This module works with Drupal 8 and 9. All the examples in this demo module assume Drush **10.3.x** is used. If you are using another version, the commands and their aliases might be different. Execute `./vendor/bin/drush list --filter=migrate` to verify the available commands for your version of Drush.
 
 **Important:** Drush 10.4+ is not compatible with `migrate_tools` <= 5. Until a 6.x branch is release for `migrate_plus`, Drush needs to be pinned to `^10.3.0` via Composer.

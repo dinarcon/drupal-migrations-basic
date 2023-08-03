@@ -2,8 +2,7 @@ name: UD Staff Example Migration
 type: module
 description: Example for the Understand Drupal Migrations Course. https://understanddrupal.com/migrations
 package: UnderstandDrupal.com
-core: 8.x
-core_version_requirement: ^8 || ^9
+core_version_requirement: ^9 || ^10
 dependencies:
   - address:address
   - drupal:migrate

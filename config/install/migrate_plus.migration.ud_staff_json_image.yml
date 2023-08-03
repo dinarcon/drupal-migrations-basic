@@ -38,7 +38,9 @@ process:
     - plugin: callback
       source: 'Photo URL'
       callable: basename
-    - plugin: transliteration
+    - plugin: service
+      service: transliteration
+      method: transliterate
     - plugin: skip_on_empty
       method: row
       message: 'Cannot import missing Photo URL.'

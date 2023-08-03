@@ -3,11 +3,11 @@
 This is a list of some commands use throughout the course.
 
 ```
-COMPOSER_MEMORY_LIMIT=-1 composer create-project drupal/recommended-project:^9.1 migrations-basic
+COMPOSER_MEMORY_LIMIT=-1 composer create-project drupal/recommended-project:^9.5 migrations-basic
 
 cd migrations-basic
 
-COMPOSER_MEMORY_LIMIT=-1 composer require 'drush/drush:^10.3.0' 'drupal/migrate_plus:^5.1' 'drupal/migrate_tools:^5.0' 'drupal/migrate_source_csv:^3.4' 'drupal/entity_reference_revisions:^1.9' 'drupal/paragraphs:^1.12' 'drupal/address:^1.9' 'cweagans/composer-patches:^1.7'
+COMPOSER_MEMORY_LIMIT=-1 composer require 'drush/drush:^11.0' 'drupal/migrate_plus:^6.0' 'drupal/migrate_tools:^6.0' 'drupal/migrate_source_csv:^3.5' 'drupal/entity_reference_revisions:^1.10' 'drupal/paragraphs:^1.15' 'drupal/address:^1.12' 'cweagans/composer-patches:^1.7'
 
 vim composer.json
 

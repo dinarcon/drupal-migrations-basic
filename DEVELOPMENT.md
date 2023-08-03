@@ -8,28 +8,26 @@ Drupal core comes with a [quick-start command](https://www.drupal.org/docs/insta
 
 These instructions also use the [recommended-project composer template](https://www.drupal.org/docs/develop/using-composer/starting-a-site-using-drupal-composer-project-templates) for installing Drupal 9. This setup assumes you have [Composer](https://getcomposer.org/) installed. To run Drupal 9 with this set you need to meet the following [requirements](https://www.drupal.org/docs/understanding-drupal/how-drupal-9-is-made-and-what-is-included/environment-requirements-of):
 
-* PHP 7.3. Check with this command: `php --version`
+* PHP 7.4 or higher. Version 8.1 or higher recommended. Check with this command: `php --version`
 * SQLite 3.26. Check with this command: `sqlite3 --version`
-* Drush **10.3.x** for running the migrations. Check with this command: `./vendor/bin/drush --version`
-
-Drush `10.4` and later is not compatible with `migrate_tools <= 5`. Until a `6.x` branch is released for `migrate_tools`, Drush needs to be pinned to `^10.3.0` via Composer.
+* Drush 11 or greater for running the migrations. Check with this command: `./vendor/bin/drush --version`
 
 ```
 # Get Drupal 9 via composer.
-composer create-project drupal/recommended-project:^9.1 migrations-basic
+composer create-project drupal/recommended-project:^9.5 migrations-basic
 
 # If you get memory limit errors when running composer, prepend the command with
 # COMPOSER_MEMORY_LIMIT=-1
 # More information at https://getcomposer.org/doc/articles/troubleshooting.md#memory-limit-errors
-COMPOSER_MEMORY_LIMIT=-1 composer create-project drupal/recommended-project:^9.1 migrations-basic
+COMPOSER_MEMORY_LIMIT=-1 composer create-project drupal/recommended-project:^9.5 migrations-basic
 
 cd migrations-basic
 
 # Add Drush
-composer require 'drush/drush:^10.3.0'
+composer require 'drush/drush:^11.0'
 
 # Add contrib modules
-composer require 'drupal/migrate_plus:^5.1' 'drupal/migrate_tools:^5.0' 'drupal/migrate_source_csv:^3.4' 'drupal/entity_reference_revisions:^1.9' 'drupal/paragraphs:^1.12' 'drupal/address:^1.9'
+composer require 'drupal/migrate_plus:^6.0' 'drupal/migrate_tools:^6.0' 'drupal/migrate_source_csv:^3.5' 'drupal/entity_reference_revisions:^1.10' 'drupal/paragraphs:^1.15' 'drupal/address:^1.12'
 
 # At the time of publication, a patch is needed for migrate_tools module.
 # The following 4 commands are only needed until this issue is resolved:
@@ -68,12 +66,6 @@ cd web/modules/custom && wget https://github.com/dinarcon/drupal-migrations-basi
 # the same command again to restart the development server.
 php web/core/scripts/drupal quick-start standard --site-name "UnderstandDrupal.com/migrations" --suppress-login
 
-# Set Claro as the admin theme.
-./vendor/bin/drush theme:enable claro && ./vendor/bin/drush --yes config:set system.theme admin claro
-
-# Set Olivero as the default (frontend) theme. If using Drupal 8.9, install it via Composer: composer require 'drupal/olivero:^1.0@beta'
-./vendor/bin/drush theme:enable olivero && ./vendor/bin/drush --yes config:set system.theme default olivero
-
 # Enable the modules
 ./vendor/bin/drush pm:enable --yes ud_staff
 
@@ -94,6 +86,8 @@ If you are using a different development environment, make sure to meet Drupal's
 
 
 ## Patching migrate_tools module
+
+Note: this is no longer needed. Left as reference of how to path a module.
 
 Add the following snippet as a child of the `extra` section in `composer.json`:
 
