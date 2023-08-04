@@ -24,9 +24,9 @@ source:
 
   fields:
     - name: src_photo_id
-      label: 'Photo ID'
+      label: 'Photo_ID'
       selector: photo_id
-    - name: 'Photo URL'
+    - name: 'Photo_URL'
       selector: photo_url
 
   ids:
@@ -36,14 +36,14 @@ source:
 process:
   pseudo_destination_filename:
     - plugin: callback
-      source: 'Photo URL'
+      source: 'Photo_URL'
       callable: basename
     - plugin: service
       service: transliteration
       method: transliterate
     - plugin: skip_on_empty
       method: row
-      message: 'Cannot import missing Photo URL.'
+      message: 'Cannot import missing Photo_URL.'
   pseudo_destination_full_path:
     plugin: concat
     source:
@@ -54,7 +54,7 @@ process:
   uri:
     plugin: download
     source:
-      - 'Photo URL'
+      - 'Photo_URL'
       - '@pseudo_destination_full_path'
     file_exists: 'rename'
 

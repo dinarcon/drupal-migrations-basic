@@ -14,14 +14,14 @@ source:
 
   plugin: csv
   path: modules/custom/ud_staff/sources/ud_staff.csv
-  ids: ['Staff ID']
+  ids: ['Staff_ID']
 
 process:
   title:
     plugin: concat
     source:
-      - 'First Name'
-      - 'Last Name'
+      - 'First_Name'
+      - 'Last_Name'
       - constants/TITLE_SUFFIX
     delimiter: ' '
 
@@ -62,7 +62,7 @@ process:
   field_ud_photo/target_id:
     plugin: migration_lookup
     migration: ud_staff_csv_image
-    source: 'Photo File'
+    source: 'Photo_File'
     no_stub: true
   field_ud_photo/alt:
     plugin: concat
@@ -73,7 +73,7 @@ process:
   pseudo_book_paragraph:
     plugin: migration_lookup
     migration: ud_staff_csv_paragraph
-    source: 'Book Reference'
+    source: 'Book_Reference'
     no_stub: true
   field_ud_favorite_book/target_id:
     plugin: extract

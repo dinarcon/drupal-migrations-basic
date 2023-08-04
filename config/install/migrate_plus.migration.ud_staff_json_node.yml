@@ -28,11 +28,11 @@ source:
 
   fields:
     - name: src_staff_id
-      label: 'Staff ID'
+      label: 'Staff_ID'
       selector: staff_id
-    - name: 'First Name'
+    - name: 'First_Name'
       selector: first_name
-    - name: 'Last Name'
+    - name: 'Last_Name'
       selector: last_name
     - name: 'Department'
       selector: department
@@ -46,9 +46,9 @@ source:
       selector: address/zip
     - name: 'Country Code'
       selector: address/country_code
-    - name: 'Photo File'
+    - name: 'Photo_File'
       selector: photo_file
-    - name: 'Book Reference'
+    - name: 'Book_Reference'
       selector: book_reference
     - name: 'Biography'
       selector: biography
@@ -67,8 +67,8 @@ process:
   title:
     plugin: concat
     source:
-      - 'First Name'
-      - 'Last Name'
+      - 'First_Name'
+      - 'Last_Name'
       - constants/TITLE_SUFFIX
     delimiter: ' '
 
@@ -109,7 +109,7 @@ process:
   field_ud_photo/target_id:
     plugin: migration_lookup
     migration: ud_staff_json_image
-    source: 'Photo File'
+    source: 'Photo_File'
     no_stub: true
   field_ud_photo/alt:
     plugin: concat
@@ -120,7 +120,7 @@ process:
   pseudo_book_paragraph:
     plugin: migration_lookup
     migration: ud_staff_json_paragraph
-    source: 'Book Reference'
+    source: 'Book_Reference'
     no_stub: true
   field_ud_favorite_book/target_id:
     plugin: extract

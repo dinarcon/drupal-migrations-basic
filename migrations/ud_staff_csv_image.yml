@@ -10,19 +10,19 @@ source:
 
   plugin: csv
   path: modules/custom/ud_staff/sources/ud_photos.csv
-  ids: ['Photo ID']
+  ids: ['Photo_ID']
 
 process:
   pseudo_destination_filename:
     - plugin: callback
-      source: 'Photo URL'
+      source: 'Photo_URL'
       callable: basename
     - plugin: service
       service: transliteration
       method: transliterate
     - plugin: skip_on_empty
       method: row
-      message: 'Cannot import missing Photo URL.'
+      message: 'Cannot import missing Photo_URL.'
   pseudo_destination_full_path:
     plugin: concat
     source:
@@ -33,7 +33,7 @@ process:
   uri:
     plugin: download
     source:
-      - 'Photo URL'
+      - 'Photo_URL'
       - '@pseudo_destination_full_path'
     file_exists: 'rename'
 

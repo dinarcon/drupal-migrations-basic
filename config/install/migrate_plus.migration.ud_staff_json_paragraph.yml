@@ -21,7 +21,7 @@ source:
 
   fields:
     - name: src_book_id
-      label: 'Book ID'
+      label: 'Book_ID'
       selector: book_id
     - name: 'Title'
       selector: book_details/title
